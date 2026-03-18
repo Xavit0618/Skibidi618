@@ -3,100 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diversion</title>
-    <style>
-         body{
-            background: linear-gradient(180deg, #19191c, #f31616) no-repeat;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-        nav{
-            background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(100px);
-            padding: 15px 30px;
-            display: flex;
-            justify-content: center;
-            gap: 100px;
-        }
-        nav a{
-            color: white;
-            text-decoration: none;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 20px;
-        }
-        nav a:hover{
-            color:#2516f3;
-        }
-        nav a.active{
-            color: #f31616;
-            border-bottom: 2px solid #f31616;
-        }
-        .Banana{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: rgb(255, 255, 255);
-        }
-        img{
-            width: 50%;
-            height: auto;
-            margin: 0;
-            border-radius: 15px;
-        }
-        .contenedor-imagen {
-            display: flex;
-            justify-content: center;
-        }
-        .seccion{
-            color: white;
-            text-align: center;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .seccion.visible{
-            opacity: 1;
-        }
-
-       
-    </style>
+    <title>Document</title>
 </head>
-<body>
-    <nav>
-        <a href="#" class="active" onclick="mostrar('Inicio')">Inicio</a>
-        <a href="#" onclick="mostrar('Nuevo')">Nuevo</a>
-        <a href="#" >Discord</a>
-    </nav>
-
-    <div id="Inicio" class="Banana seccion visible">
-        <h1>Hola</h1>
-        <p>Esto es un experimento social para la era de los cafes debido a que estoy aburrido</p>
-        <img src="imagenes/image.png" alt="Promoción de cafés">
-    </div>
-
-    <div id="Nuevo" class="seccion" style="display:none">
-        <h1>Novedades</h1>
-        <p>¿Has visto cuantas noticias sobre los cafés hay?</p>
-        <p>Debes de revisar todo lo posible antes de tomar tus cafés</p>
-        <p>Brady Brewer, CEO de Starbucks Internacional y presidente de La Fundación Starbucks, confirmó los apoyos a las instituciones que atienden diversas causas, 
-        durante la experiencia en la que degustó el café "México", que servirán a partir de enero</p>
-    </div>
-
-    <script>
-        function mostrar(id) {
-        document.querySelectorAll('nav a').forEach(a =>a.classList.remove('active'));
-        event.target.classList.add('active');
-
-        document.querySelectorAll('.seccion').forEach(s => {
-        s.style.display = 'none';
-        s.classList.remove('visible');
-    });
-        const seccion = document.getElementById(id);
-        seccion.style.display = 'block';
-        setTimeout(() => seccion.classList.add('visible'), 10);
+<style>
+    body{
+        background-color: rgb(74, 57, 57);
     }
-    </script>
+</style>
+<body>
+    
+    <form action="" id="Form1">
+        <input type="text" name="dato1" id="dato1">
+
+        <button type="submit">Pulsar</button>
+    </form>
+   
+    <form action="" id="Form2">
+        <input type="text" name="dato2" id="dato2">
+        
+        <button type="submit">Buscar</button>
+    </form>
+
+<script>
+    let Formulario=document.getElementById("Form1")
+let Buscar=document.getElementById("Form2")
+let Arreglo=[]
+
+Formulario.addEventListener('submit',function(event){
+  event.preventDefault();
+  let FData=new FormData(Formulario)
+  let d1=FData.get("dato1")
+
+  Arreglo.push(d1)
+  console.log(Arreglo)
+})
+Buscar.addEventListener('submit',function(event){
+    event.preventDefault();
+    let FData=new FormData(Buscar)
+    let d2=FData.get("dato2")
+
+        if (Arreglo.includes(d2)) {
+            console.log("Aparece")
+        } else {
+            console.log("No aparece")
+        }
+})
+</script>
 
 </body>
 </html>
