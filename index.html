@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgb(74, 57, 57);
+    }
+</style>
+<body>
+    
+    <form action="" id="Form1">
+        <input type="text" name="dato1" id="dato1">
+
+        <button type="submit">Pulsar</button>
+    </form>
+   
+    <form action="" id="Form2">
+        <input type="text" name="dato2" id="dato2">
+        
+        <button type="submit">Buscar</button>
+    </form>
+
+<script>
+    let Formulario=document.getElementById("Form1")
+let Buscar=document.getElementById("Form2")
+let Arreglo=[]
+
+Formulario.addEventListener('submit',function(event){
+  event.preventDefault();
+  let FData=new FormData(Formulario)
+  let d1=FData.get("dato1")
+
+  Arreglo.push(d1)
+  console.log(Arreglo)
+})
+Buscar.addEventListener('submit',function(event){
+    event.preventDefault();
+    let FData=new FormData(Buscar)
+    let d2=FData.get("dato2")
+
+        if (Arreglo.includes(d2)) {
+            console.log("Aparece")
+        } else {
+            console.log("No aparece")
+        }
+})
+</script>
+
+</body>
+</html>
